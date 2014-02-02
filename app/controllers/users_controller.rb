@@ -29,10 +29,25 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.destroy
 		redirect_to users_path
+	end
+	
+	def search
+		@user = User.new
 	end	
 
 	def unsubscribe
-		@user = User.find(params[:id])
+		@user = User.find_by(email: params[:user][:email])
+		
+		if (@user == nil)
+			@user = User.new
+			flash.now[:error] = "Could not find the email address you provided."
+			render 'search' and return
+		end
+		
+		if @user.destroy
+			flash[:notice] = "You've been unsubscribed."
+			redirect_to users_path
+		end		
 	end
 private
 	def user_params

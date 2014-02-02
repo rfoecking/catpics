@@ -3,8 +3,11 @@ Catpic::Application.routes.draw do
 	collection do
 		get 'list'
 	end
-	member do
-		get 'unsubscribe'
+	collection do
+		post 'unsubscribe'
+	end
+	collection do
+		get 'search'
 	end	
   end
   # The priority is based upon order of creation: first created -> highest priority.

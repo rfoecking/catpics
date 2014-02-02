@@ -1,4 +1,4 @@
-Thanks for signin up.  This is the info we got.<br/>
+Thanks for signin up.  This is the info we got. You'll receive an email with a random cat picture once per day.  You can unsubscribe from the email.<br/><br/>
 <strong>Your name:</strong>
   <%= @user.name %>
 </p>
@@ -8,5 +8,3 @@ Thanks for signin up.  This is the info we got.<br/>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Unsubscribe', user_path(@user),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
